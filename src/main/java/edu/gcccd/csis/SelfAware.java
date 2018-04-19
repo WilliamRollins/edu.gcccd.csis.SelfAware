@@ -28,7 +28,6 @@ public class SelfAware implements Language {
         String[] wordFile = s.split("\\b");
         int occurrences = 0;
         for (String ReservedWord : ReservedWords) {
-            System.out.println("Reserved Word: " + ReservedWord);
             for (String aWordFile : wordFile)
                 if (ReservedWord.equals(aWordFile)) {
                     occurrences++;
