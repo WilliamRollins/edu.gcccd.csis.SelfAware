@@ -1,8 +1,5 @@
 package edu.gcccd.csis;
-// boolean
-// boolean
-// boolean
-// boolean
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -10,7 +7,6 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
 public class SelfAware implements Language {
-
 
     public static void main(String[] args) {
         final String code = System.getProperty("user.dir") + File.separator +
@@ -30,20 +26,14 @@ public class SelfAware implements Language {
         String[] wordFile = s.split("\\b");
         int occurrences = 0;
         for (String ReservedWord : ReservedWords) {
+            System.out.println("Reserved Word: " + ReservedWord);
             for (String aWordFile : wordFile)
-                if (aWordFile.equals(ReservedWord)) {
-                    System.out.println(ReservedWord);
-                    System.out.println(occurrences++);
+                if (ReservedWord.equals(aWordFile)) {
                     occurrences++;
                 }
         }
+        occurrences=occurrences/2;
         return occurrences;
-    }
-
-    public static void Test (String[] args) {
-        int a = 1;
-        boolean b = true;
-      
     }
 
     @Override
@@ -51,4 +41,3 @@ public class SelfAware implements Language {
         Files.write(Paths.get(sourceFile), message.getBytes(), StandardOpenOption.APPEND);
     }
 }
-
