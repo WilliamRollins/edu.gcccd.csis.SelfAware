@@ -14,7 +14,7 @@ public class SelfAware implements Language {
                 SelfAware.class.getName().replace(".", File.separator) + ".java";
         SelfAware sa = new SelfAware();
         try {
-            sa.append(code,"\n//Keyword occurrences: " + sa.occurrences(code));
+            sa.append(code, "\n//Keyword occurrences: " + sa.occurrences(code));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -22,7 +22,9 @@ public class SelfAware implements Language {
 
     @Override
     public int occurrences(String sourceFile) throws Exception {
+        //convert file into string
         final String s = new String(Files.readAllBytes(Paths.get(sourceFile)));
+        //convert string file into an array
         String[] wordFile = s.split("\\b");
         int occurrences = 0;
         for (String ReservedWord : ReservedWords) {
@@ -32,7 +34,7 @@ public class SelfAware implements Language {
                     occurrences++;
                 }
         }
-        occurrences=occurrences/2;
+        occurrences = occurrences / 2;
         return occurrences;
     }
 

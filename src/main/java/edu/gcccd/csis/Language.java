@@ -1,8 +1,6 @@
 package edu.gcccd.csis;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -72,7 +70,6 @@ public interface Language {
             }
         });
     }
-int k =0;
 
     /**
      * Counts the total number of occurrences of all Java keyword in the file.
