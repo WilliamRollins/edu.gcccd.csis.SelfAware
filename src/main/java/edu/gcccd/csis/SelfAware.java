@@ -1,5 +1,8 @@
 package edu.gcccd.csis;
-
+// boolean
+// boolean
+// boolean
+// boolean
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -7,10 +10,9 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
 public class SelfAware implements Language {
-    int k = 0;
 
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         final String code = System.getProperty("user.dir") + File.separator +
                 "src" + File.separator + "main" + File.separator + "java" + File.separator +
                 SelfAware.class.getName().replace(".", File.separator) + ".java";
@@ -27,16 +29,21 @@ public class SelfAware implements Language {
         final String s = new String(Files.readAllBytes(Paths.get(sourceFile)));
         String[] wordFile = s.split("\\b");
         int occurrences = 0;
-        for (int i = 0; i < ReservedWords.length; i++) {
-            for (int z = 0; z < wordFile.length; z++) {
-                if (wordFile[z].equals(ReservedWords[i]) || wordFile[z] == ReservedWords[i]) {
-                    System.out.println(ReservedWords[i]);
+        for (String ReservedWord : ReservedWords) {
+            for (String aWordFile : wordFile)
+                if (aWordFile.equals(ReservedWord)) {
+                    System.out.println(ReservedWord);
                     System.out.println(occurrences++);
                     occurrences++;
                 }
-            }
         }
         return occurrences;
+    }
+
+    public static void Test (String[] args) {
+        int a = 1;
+        boolean b = true;
+      
     }
 
     @Override
@@ -44,3 +51,5 @@ public class SelfAware implements Language {
         Files.write(Paths.get(sourceFile), message.getBytes(), StandardOpenOption.APPEND);
     }
 }
+
+//Keyword occurrences: 84
